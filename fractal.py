@@ -1,5 +1,9 @@
 from matplotlib.pyplot import *
 from numpy import *
+
+def factor_function(p,image_size,max,min,value):
+ return (p/image_size)*(max-min)-value
+
 value = 2
 max=value
 min=-value
@@ -7,9 +11,11 @@ c=value
 image_size = 1240
 A=zeros((image_size, image_size))
 for px in range(image_size):
- x0=(px/image_size)*(max-min)-value
+ #x0=(px/image_size)*(max-min)-value
+ x0 = factor_function(px,image_size,max,min,value)
  for py in range(image_size):
-  y0=(py/image_size)*(max-min)-value
+  #y0=(py/image_size)*(max-min)-value
+  y0 = factor_function(py,image_size,max,min,value)
   x=0.0
   y=0.0
   it=0
